@@ -17,10 +17,10 @@ utilizando a biblioteca Pygame e alguns conceitos de estruturas de repetição �
 O jogo Tetris nasceu na antiga URSS, em junho de 1984, e foi desenvolvido pelo cientista russo Alexey Pajitnov no Centro de Computação da Academia Russa de Ciências (Russian Academy of Sciences). Em plena Guerra Fria, Pajitnov se inspirou em um jogo de tabuleiro de origem grega, chamado Pentominoes, para criar o game. 
 
 # Techs Used
- <img src="cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="96" width="96px" />
+ <img src="http://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="96" width="96px" />
 
 
 
 # Screenshots
-  <img src="https://i.imgur.com/S5cdn0v.png"> 
+  <img src="https://i.imgur.com/VSUNwAS.png"> 
   
