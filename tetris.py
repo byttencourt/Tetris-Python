@@ -1,5 +1,6 @@
 import pygame
 import random
+from random import choice
 
 """
 10 x 20 square grid
@@ -84,7 +85,7 @@ shape = [  # redesigned
 
      ],
 
-    [	["..0..",
+    [	  ["..0..",
            "..0..",
            "..0..",
            "..0..",
@@ -194,6 +195,7 @@ shape = [  # redesigned
 
 shapes = [x for x in shape]
 
+listcolor = [(129, 200, 128), (254, 17, 78), (254, 131, 16), (255, 205, 31), (0, 191, 235), (255, 48, 255)]
 class Piece(object):
     rows = 20
     columns = 10
@@ -201,7 +203,8 @@ class Piece(object):
         self.x = column
         self.y = row
         self.shape = shape
-        self.color = (129 ,200 ,128)
+        colored = choice(listcolor)
+        self.color = (colored)
         self.rotation = 0  # number from 0-3
 
 
@@ -262,10 +265,11 @@ def get_shape():
 def draw_text_middle(text, size, color, surface):
     font = pygame.font.SysFont("comicsans", size, bold=True)
     label = font.render(text, 1, color)
-
+    imp = pygame.image.load("tetris.png").convert()
     surface.blit(label,
-    (top_left_x + play_width / 2 - (label.get_width() / 2), top_left_y + play_height / 2 - label.get_height() / 2))
-
+                 (top_left_x + play_width / 2 - (label.get_width() / 2),
+                  top_left_y + play_height / 1 - label.get_height() / 2))
+    surface.blit(imp, (200, 300))
 
 def draw_grid(surface, row, col):
     sx = top_left_x
@@ -436,7 +440,7 @@ def main_menu():
     run = True
     while run:
         win.fill((0, 0, 0))
-        draw_text_middle("Pressione qualquer tecla para iniciar.", 30, (255, 255, 255), win)
+        draw_text_middle("Pressione qualquer tecla para iniciar.", 30, (255, 255, 255), win,)
         pygame.display.update()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
