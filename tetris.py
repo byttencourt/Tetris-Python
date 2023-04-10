@@ -1,6 +1,9 @@
+from urllib.request import urlopen
+from random import choice
+import io
 import pygame
 import random
-from random import choice
+
 
 """
 10 x 20 square grid
@@ -194,8 +197,9 @@ shape = [  # redesigned
 ]
 
 shapes = [x for x in shape]
-
 listcolor = [(102, 234, 71), (254, 17, 78), (254, 131, 16), (255, 205, 31), (0, 191, 235), (255, 48, 255)]
+
+
 class Piece(object):
     rows = 20
     columns = 10
@@ -265,7 +269,10 @@ def get_shape():
 def draw_text_middle(text, size, color, surface):
     font = pygame.font.SysFont("comicsans", size, bold=True)
     label = font.render(text, 1, color)
-    imp = pygame.image.load("tetris.png").convert()
+    image_url = "https://i.imgur.com/BZc1gii.png"
+    image_str = urlopen(image_url).read()
+    image_file = io.BytesIO(image_str)
+    imp = pygame.image.load(image_file)
     surface.blit(label,
                  (top_left_x + play_width / 2 - (label.get_width() / 2),
                   top_left_y + play_height / 1 - label.get_height() / 2))
@@ -448,10 +455,12 @@ def main_menu():
 
             if event.type == pygame.KEYDOWN:
                 main()
-    pygame.quit()
+
 
 
 win = pygame.display.set_mode((s_width, s_height))
 # win = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 pygame.display.set_caption("Tetris")
 main_menu()  # start game
+
+# criar executavel: pyinstaller --onefile -w  tetris.py
